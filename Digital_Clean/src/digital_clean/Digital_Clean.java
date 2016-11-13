@@ -18,11 +18,11 @@ import java.sql.*;
  */
 public class Digital_Clean {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         run();
     }
 
-    public static int run(){
+    public static int run() throws Exception{
         System.out.println("Enter \'y\' add data");
         Scanner keyboard = new Scanner(System.in);
         String input = keyboard.next();
@@ -41,13 +41,15 @@ public class Digital_Clean {
         return 0;
     }
 
-    public static void sQL_add() {
+    public static Connection sQL_add() throws Exception{
         try {
-            String url = "Mysql@mysql3.gear.host:3306";
+            String driver = "com.mysql.jdbc.Driver";
+            String url = "jdbc:mysql://mysql3.gear.host:3306/digitalclean";
+            Class.forName(driver);
             Connection conn = DriverManager.getConnection(url, "digitalclean",
                     "Waiting608!");
             PreparedStatement stmt = conn.prepareStatement("INSERT INTO "
-                    + "digitalclean.users(name, location, time) VALUES (?, ?, ?)");
+                    + "users ( 'Jason','Expo','2016-01-01 12:00:00' )");
             Calendar calendar = Calendar.getInstance();
             java.util.Date currentDate = calendar.getTime();
             java.sql.Date date = new java.sql.Date(currentDate.getTime());
@@ -55,9 +57,12 @@ public class Digital_Clean {
             stmt.setString(2, "Hallway");
             stmt.setDate(3, date);
             stmt.executeUpdate();
+            
+            return conn;
         } catch (Exception e) {
             System.out.println(e);
         }
+        return null;
     }
 
 }
