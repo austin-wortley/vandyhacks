@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Digital Clean</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<div class="container text-center">
+    <h1>Results</h1>
+</div>
+
+<div class="container" id ="TableContainer">
+
+    <table id="Table" align = "center" width=100%>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Time</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Dr. James Jones</td>
+            <td>Expo</td>
+            <td>4:50</td>
+        </tr>
+        <tr>
+            <td>JJ</td>
+            <td>ExpoCenterPlace</td>
+            <td>4:50</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <script>
+    $(document).ready(function(){
+    $('#Table').DataTable();
+    });
+    </script>
+
+</div>
+</body>
+</html>
+
